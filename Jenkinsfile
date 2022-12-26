@@ -44,6 +44,15 @@ pipeline{
             }
         }
         
+        stage('Hello') {
+            steps {
+                 script{
+                     sh 'kubectl get nodes'
+                 } 
+            }
+        }
+    
+        
     }
     post {
 		always {
