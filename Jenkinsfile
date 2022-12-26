@@ -16,7 +16,7 @@ pipeline{
                       def qg = waitForqualityGate()
                       if (qg.status != 'OK') {
                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
-                      }
+                        }
                     }
 
                     
@@ -25,7 +25,8 @@ pipeline{
             }
             
         }
-        stage("docker login and docker push") {
+        /** 
+        stage("docker login and docker push"){
             steps{
                 script{
                     withCredentials([string(credentialsId: 'docker-pass', variable: 'docker')]) {
@@ -34,7 +35,7 @@ pipeline{
                             docker login -u admin -p $docker 52.66.45.157:8083
                             docker push 52.66.45.157:8083/springapp:${VERSION}
                             docker rmi 52.66.45.157:8083/springapp:${VERSION}
-                            '''
+                        '''
     
                     }
                      
@@ -42,6 +43,7 @@ pipeline{
                 }
             }
         }
+        **/
     }
     
 }
