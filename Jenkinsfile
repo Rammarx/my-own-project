@@ -47,7 +47,7 @@ pipeline{
         stage('Hello') {
             steps {
                  script{
-                     sh 'kubectl get nodes'
+                     sh 'sudo kubectl get nodes'
                  } 
             }
         }
