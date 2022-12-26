@@ -13,7 +13,7 @@ pipeline{
                     }
 
                     timeout(time: 1, unit: 'HOURS') {
-                      def qg = waitForqualityGate()
+                      def qg = waitForQualityGate()
                       if (qg.status != 'OK') {
                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
                         }
@@ -25,7 +25,7 @@ pipeline{
             }
             
         }
-        /** 
+        
         stage("docker login and docker push"){
             steps{
                 script{
@@ -43,7 +43,7 @@ pipeline{
                 }
             }
         }
-        **/
+        
     }
     
 }
